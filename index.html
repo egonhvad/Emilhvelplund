@@ -1,19 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
+  <meta charset="UTF-8">
+  <title>Emil Hvelplund</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .left-content {
+    max-width: 500px; /* Adjust width as needed */
+    margin: 0;
+    padding: 20px 0;
+    position: relative;
+    /* Removed border-radius and box-shadow */
+    z-index: 1;
+  }
+  .left-content > * {
+    position: relative;
+    z-index: 2;
+  }
+  .left-content::before {
+    content: none; /* Remove overlay */
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+  }
   </style>
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Emil Hvelplund</b></span></h1>
-<p class="p2"><span class="s1">This is a simple HTML page.</span></p>
-<p class="p2"><span class="s1">Hey hey<span class="Apple-converted-space"> </span></span></p>
+  <div class="left-content">
+    <h1>Emil Hvelplund</h1>
+    <p>Emil Hvelplund is an architect and educator based in Copenhagen and Basel.</p>
+    <p>He is currently teaching at <a href="https://royaldanishacademy.com/en" target="_blank">The Royal Danish Academy School of Architecture</a> under the BA Program Finder Sted l Taking Place. His work ranges from theoretical inquiries into the everyday implication of architecture.</p>
+    <p>He runs a modest architecture studio called SOFT that collaborates with various artists, directors and makers.</p>
+    <p>Emil is the head and founder of <a href="https://paraplyschool.com/" target="_blank">Paraply school</a> – a summer school exploring the future of architecture through practical speculation.</p>
+    <p>Along with Silvia Cipeletti, he founded the cinematic research unit <a href="https://movinglandscape.com" target="_blank">'Moving Landscape'</a>, exploring a critical view on the sustainable futures for lands and cities in transformation.</p>
+    <p>Emil holds a MSc from Accademia di architettura di Mendrisio in Switzerland, and a B.Arch from the Royal Danish Academy in Denmark. Previous collaborations include Herzog de Meuron, SO-IL and Dorthe Mandrup Architects.</p>
+    <p>Feel free to contact by e-mail, phone or in real life.</p>
+  </div>
 </body>
 </html>
