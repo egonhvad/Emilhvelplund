@@ -1,262 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport for responsiveness -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emil Hvelplund</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-rows: auto;
+      /* Let rows be defined by content */
+      gap: 0;
+      overflow-x: hidden;
+      /* background removed */
+    }
+
+    .grid-item {
+      box-sizing: border-box;
+      padding: 0;
+      /* Remove padding */
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      /* Let height be defined by content */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .frame {
+      width: 100%;
+      /* Remove aspect-ratio and height */
+      /* aspect-ratio: 1 / 1; */
+      /* height: 100%; */
+      border: none;
+      background: none;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      color: #222;
+      font-size: 0.95em;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+      margin: 0;
+      padding: 10px;
+      line-height: 1.5;
+      word-break: break-word;
+      white-space: pre-line;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .frame>img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0;
+    }
+
+    .frame:hover {
+      border-color: unset;
+    }
+
+    /* Responsive: reduce columns on smaller screens */
+    @media (max-aspect-ratio: 3/2),
+    (max-width: 1200px) {
+      body {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+    }
+
+    @media (max-width: 800px) {
+      body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+
+      .grid-item {
+        padding: 0;
+      }
+
+      .frame {
+        font-size: 0.92em;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .grid-item {
+        padding: 0;
+      }
+
+      .frame {
+        font-size: 0.9em;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-  <!-- Top Navigation -->
-  <div class="top-nav-left">
-    <span>Emil Hveplund Kristiansen</span>
-  </div>
-  <div class="top-nav">
-    <a href="about.html">About</a>
-  </div>
-
-  <div class="grid-container">
-
-
-
-
-
-    <!-- 3. Læsø Seaweed Houses (Row E: Text Col 1, Media Col 2) - SHIFTED FAR LEFT -->
-    <div class="project-row row-e">
-      <div class="text-block">
-        <h2><a href="#" class="popup-trigger" onclick="openOverlay([
-          'Images/TP23_03_Seaweed at Hand.jpg',
-          'Images/TP23_03_Seaweed at Hand__Page_2.jpg',
-          'Images/TP23_03_Seaweed at Hand__Page_3.jpg',
-          'Images/33_6271_12.jpg', 
-          'Images/19_6271_03.jpg', 
-          'Images/10_6266_13.jpg'
-          ], [
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet'
-          ]); return false;" style="text-decoration: underline;">Læsø seaweed houses</a></h2>
-        <p>
-          Article in Plant Magazine<br>
-          Pictures by Johanna Hvidtved<br><br>
-          <em>Women were gatherers, using the beaches as their resource chambers. By collecting, unraveling, twisting,
-            and
-            binding, the eelgrass, which otherwise lay unused on the island’s shores, became part of the building
-            structure.</em>
-        </p>
-        <p>
-          <em>The buildings emerged from the landscape and, in this way, also became part of it.</em>
-        </p>
-      </div>
-      <div class="media-block">
-        <a href="#" class="img-link popup-trigger" onclick="openOverlay([
-          'Images/TP23_03_Seaweed at Hand.jpg',
-          'Images/TP23_03_Seaweed at Hand__Page_2.jpg',
-          'Images/TP23_03_Seaweed at Hand__Page_3.jpg',
-          'Images/33_6271_12.jpg', 
-          'Images/19_6271_03.jpg', 
-          'Images/10_6266_13.jpg'
-          ], [
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Seaweed at hand. Article by Emil Hvelplund Kristiansen, Images by Johanna Hvidtved. Plant Magazine issue 33', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet', 
-          'Læsø Seaweed Houses, Image by Johanna Hvidtvet'
-          ]); return false;">
-          <div class="img-wrapper">
-            <img src="Images/33_6271_12.jpg" alt="Læsø seaweed houses">
-            <div class="img-overlay">Læsø seaweed houses</div>
-          </div>
-        </a>
-      </div>
+  <div class="grid-item" style="grid-column: 1 / span 2; grid-row: 1;">
+    <div class="frame">
+      Emil Hvelplund is an architect and educator based in Copenhagen and Basel.<br>
+      He is currently teaching at The Royal Danish Academy School of Architecture under the BA Program Finder Sted l
+      Taking Place. His work ranges from theoretical inquiries into the everyday implication of architecture.<br>
+      He runs a modest architecture studio called SOFT that collaborates with various artists, directors and makers.<br>
+      Emil is the head and founder of Paraply school – a summer school exploring the future of architecture through
+      practical speculation.<br>
+      Along with Silvia Cipeletti, he founded the cinematic research unit 'Moving Landscape', exploring a critical view
+      on the sustainable futures for lands and cities in transformation.<br>
+      Emil holds a MSc from Accademia di architettura di Mendrisio in Switzerland, and a B.Arch from the Royal Danish
+      Academy in Denmark. Previous collaborations include Herzog de Meuron, SO-IL and Dorthe Mandrup Architects.<br>
+      Feel free to contact by e-mail, phone or in real life.
     </div>
-
-    <!-- Force Grid New Row -->
-    <div style="grid-column: 1 / -1;"></div>
-
-    <!-- 4. Daniel Libeskind -->
-    <div class="project-row row-span-middle-right">
-      <div class="text-block">
-        <p>Setdesign for Daniel Libeskind.<br>Film by Michael Madsen</p>
-      </div>
-      <div class="media-block">
-        <a href="#" class="img-link popup-trigger"
-          onclick="openOverlay(['Images/DL_rendering.jpg'], 'Daniel Libeskind Film'); return false;">
-          <div class="img-wrapper">
-            <img src="Images/DL_rendering.jpg" alt="Daniel Libeskind Film">
-            <div class="img-overlay">Daniel Libeskind</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- 4 & 5. Combined Split Row (Left Media, Center Text, Right Media) -->
-    <div class="project-row row-split">
-
-      <!-- Left Media: Palazzina -->
-      <div class="media-block media-left">
-        <a href="https://palazzina.ch/index.php/layout/exhibition/inauguration" target="_blank" rel="noopener"
-          class="img-link">
-          <div class="img-wrapper">
-            <img src="Images/onfoot.jpg" alt="Palazzina 'On foot'">
-            <div class="img-overlay">Palazzina "On foot"</div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Center Text: Palazzina text only -->
-      <div class="text-block text-center">
-        <div style="text-align: left;">
-          <h2><a href="https://palazzina.ch/index.php/layout/exhibition/inauguration" target="_blank"
-              rel="noopener">Palazzina</a></h2>
-          <p><a href="https://palazzina.ch/index.php/layout/exhibition/inauguration" target="_blank" rel="noopener">"On
-              foot"</a></p>
-          <p>
-            <a href="https://palazzina.ch/index.php/layout/exhibition/inauguration" target="_blank" rel="noopener">View
-              Exhibition</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Right Media: Moving Landscape Video -->
-      <div class="media-block media-right">
-        <div class="video-container">
-          <iframe
-            src="https://player.vimeo.com/video/879461077?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            allow="autoplay; fullscreen; picture-in-picture" title="Til Bords"></iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-      </div>
-
-      <!-- Far Right Text: Moving Landscape -->
-      <div class="text-block text-right">
-        <h2><a href="https://vimeo.com/movinglandscape" target="_blank" rel="noopener">Moving Landscape</a></h2>
-        <p>
-          The moving landscape workshop deploys cinema as a medium for architectural inquiry.
-        </p>
-        <p>
-          Exploring places through the lens and developing projects that are based on empirical and on-the-ground
-          research.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- 6. Finder Sted (Row Center: Col 3) -->
-    <div class="project-row row-center">
-      <div class="media-block">
-        <a href="#" class="img-link">
-          <div class="img-wrapper">
-            <img src="Images/1til1_1.jpg" alt="Finder Sted | Taking Place">
-            <div class="img-overlay">Finder Sted | Taking Place</div>
-          </div>
-        </a>
-      </div>
-      <div class="text-block">
-        <h2>Finder Sted</h2>
-        <p>Taking Place</p>
-      </div>
-    </div>
-
   </div>
-
-  <!-- Fullscreen Image Overlay -->
-  <div id="image-overlay" onclick="closeOverlay()">
-    <a class="prev-btn" onclick="changeImage(-1, event)">&#10094;</a>
-    <img class="overlay-content" id="overlay-img">
-    <div id="overlay-text" class="overlay-content" style="display: none;"></div>
-    <a class="next-btn" onclick="changeImage(1, event)">&#10095;</a>
-    <div id="overlay-caption"></div>
+  <!-- Example: frames distributed in grid squares below -->
+  <div class="grid-item">
+    <div class="frame">2</div>
   </div>
-
-  <script>
-    let currentImageIndex = 0;
-    let currentImageGallery = [];
-    let currentImageCaptions = [];
-
-    function openOverlay(srcArray, captionOrArray) {
-      document.getElementById("image-overlay").style.display = "block";
-
-      // Handle single strings or arrays
-      currentImageGallery = Array.isArray(srcArray) ? srcArray : [srcArray];
-      currentImageCaptions = Array.isArray(captionOrArray) ? captionOrArray : [captionOrArray];
-      currentImageIndex = 0;
-
-      updateOverlayImage();
-
-      // Add event listeners when opening
-      document.addEventListener('keydown', handleEscKey);
-      window.addEventListener('scroll', closeOverlay);
-
-      // Show or hide arrows depending on gallery length
-      const displayArrows = currentImageGallery.length > 1 ? "block" : "none";
-      document.querySelector('.prev-btn').style.display = displayArrows;
-      document.querySelector('.next-btn').style.display = displayArrows;
-    }
-
-    function updateOverlayImage() {
-      const item = currentImageGallery[currentImageIndex];
-      const imgEl = document.getElementById("overlay-img");
-      const textEl = document.getElementById("overlay-text");
-
-      if (typeof item === 'string' && item.startsWith("text:")) {
-        imgEl.style.display = "none";
-        textEl.style.display = "flex";
-        textEl.innerHTML = item.substring(5);
-      } else {
-        imgEl.style.display = "block";
-        textEl.style.display = "none";
-        imgEl.src = item;
-      }
-
-      // Update caption (fallback to the first caption if the array is too short)
-      const caption = currentImageCaptions[currentImageIndex] || currentImageCaptions[0] || "";
-      document.getElementById("overlay-caption").innerText = caption;
-    }
-
-    function changeImage(step, event) {
-      if (event) event.stopPropagation(); // prevent clicking next/prev from closing overlay
-      currentImageIndex += step;
-
-      // Wrap around logic
-      if (currentImageIndex >= currentImageGallery.length) {
-        currentImageIndex = 0;
-      } else if (currentImageIndex < 0) {
-        currentImageIndex = currentImageGallery.length - 1;
-      }
-      updateOverlayImage();
-    }
-
-    function closeOverlay() {
-      document.getElementById("image-overlay").style.display = "none";
-      // Remove event listeners when closing
-      document.removeEventListener('keydown', handleEscKey);
-      window.removeEventListener('scroll', closeOverlay);
-    }
-
-    function handleEscKey(event) {
-      if (event.key === "Escape") {
-        closeOverlay();
-      } else if (event.key === "ArrowRight") {
-        if (currentImageGallery.length > 1) changeImage(1);
-      } else if (event.key === "ArrowLeft") {
-        if (currentImageGallery.length > 1) changeImage(-1);
-      }
-    }
-
-    // Prevent closing when clicking on the image itself
-    document.getElementById("overlay-img").addEventListener('click', function (event) {
-      event.stopPropagation();
-    });
-  </script>
+  <div class="grid-item">
+    <div class="frame">3</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">4</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">5</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">6</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">7</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">8</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">
+      <img src="Images/1til1_1.jpg" alt="1til1_1">
+    </div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">10</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">
+      <img src="Images/25_6265_08.jpg" alt="25_6265_08">
+    </div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">women were gatherers, using the beaches as their resource chambers. By collecting, unraveling,
+      twisting, and binding, the eelgrass, which otherwise lay unused on the island’s shores, became part of the
+      building structure. The buildings emerged from the landscape and, in this way, also became part of it.</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">12</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">13</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">14</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">15</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">16</div>
+  </div>
+  <div class="grid-item" style="grid-column: span 2;">
+    <div class="frame">
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe src="https://player.vimeo.com/video/873767622?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="The stillness shall be the dancing"></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">19</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">20</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">21</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">22</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">23</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">24</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">25</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">26</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">27</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">28</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">29</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">30</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">31</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">32</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">33</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">34</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">35</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">36</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">37</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">38</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">39</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">40</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">41</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">42</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">43</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">44</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">45</div>
+  </div>
+  <div class="grid-item">
+    <div class="frame">46</div>
+  </div>
 </body>
 
 </html>
