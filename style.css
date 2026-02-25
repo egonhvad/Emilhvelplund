@@ -1,0 +1,496 @@
+/* Reset & Base */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Acumin Variable Concept", Arial, sans-serif;
+  font-weight: 500;
+  background: #fff;
+  color: #222;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* --- Image Overlay / Link Styles --- */
+a.img-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.img-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.0);
+  /* Transparent bg */
+  color: #cf669b;
+  /* Pink text */
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  /* Let clicks pass through if needed, but usually we want to click the link */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  z-index: 10;
+}
+
+a.img-link:hover .img-overlay {
+  opacity: 1;
+}
+
+/* 5-Column Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  /* Space between columns */
+  width: 100%;
+  max-width: 100%;
+  margin-top: 140px;
+  /* Space before pictures */
+  padding: 0 20px;
+  /* Horizontal margins */
+  box-sizing: border-box;
+}
+
+/* Row Logic Wrapper (display: contents allows children to sit on the main grid) */
+.project-row {
+  display: contents;
+}
+
+/* Common Item Styles */
+.text-block,
+.media-block {
+  margin-bottom: 30px;
+  /* Reduced vertical sparsity */
+  position: relative;
+}
+
+.media-block img,
+.media-block video,
+.media-block iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Typography styles for text blocks */
+.text-block p {
+  margin: 0 0 1em 0;
+}
+
+.text-block h2 {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+  color: #000;
+}
+
+.text-block a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  transition: all 0.3s ease;
+}
+
+.text-block a:hover {
+  color: #cf669b;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 8px rgba(207, 102, 155, 0.6);
+}
+
+/* 
+  Magnet Alignment Logic
+  --
+  The classes below define where items sit on the 5-column grid.
+  Columns are 1-indexed: 1, 2, 3, 4, 5.
+*/
+
+/* --- Row Variant A: Text col 2, Media col 3 --- 
+   Text is LEFT of Media -> Text Align RIGHT
+*/
+.row-a .text-block {
+  grid-column: 2;
+  text-align: right;
+  align-self: start;
+  /* or center, depending on vibe */
+}
+
+.row-a .media-block {
+  grid-column: 3;
+}
+
+/* --- Row Variant B: Media col 2, Text col 3 ---
+   Text is RIGHT of Media -> Text Align LEFT
+*/
+.row-b .media-block {
+  grid-column: 2;
+}
+
+.row-b .text-block {
+  grid-column: 3;
+  text-align: left;
+  align-self: start;
+}
+
+/* --- Row Variant C: Text col 4, Media col 5 (Far Right) ---
+   Text is LEFT of Media -> Text Align RIGHT
+*/
+.row-c .text-block {
+  grid-column: 4;
+  text-align: right;
+  align-self: start;
+}
+
+.row-c .media-block {
+  grid-column: 5;
+}
+
+/* --- Row Variant D: Media col 3, Text col 4 ---
+   Text is RIGHT of Media -> Text Align LEFT
+*/
+.row-d .media-block {
+  grid-column: 3;
+}
+
+.row-d .text-block {
+  grid-column: 4;
+  text-align: left;
+  align-self: start;
+}
+
+/* --- Row Variant E: Text col 1, Media col 2 (Far Left Drift) --- */
+.row-e .text-block {
+  grid-column: 1;
+  text-align: right;
+  align-self: start;
+}
+
+.row-e .media-block {
+  grid-column: 2;
+}
+
+/* --- Row Variant F: Media col 4, Text col 5 (Far Right Drift) --- */
+.row-f .media-block {
+  grid-column: 4;
+}
+
+.row-f .text-block {
+  grid-column: 5;
+  text-align: left;
+  align-self: start;
+}
+
+/* --- Large Row Right (Media spans 2 cols on right) --- */
+/* Text Col 3, Media Col 4-5 */
+.row-large-right .text-block {
+  grid-column: 3;
+  text-align: right;
+  align-self: start;
+}
+
+.row-large-right .media-block {
+  grid-column: 4 / span 2;
+}
+
+/* --- Spanning Middle Right (Between Col 3 and 4) --- */
+.row-span-middle-right .media-block {
+  grid-column: 3 / span 2;
+  justify-self: center;
+  width: calc((100% - 20px) / 2);
+  /* Exactly 1 column wide */
+}
+
+.row-span-middle-right .text-block {
+  grid-column: 2;
+  position: relative;
+  left: calc(50% + 10px);
+  text-align: right;
+  align-self: start;
+}
+
+/* --- Large Row Left (Media spans 2 cols on left) --- */
+/* Media Col 1-2, Text Col 3 */
+.row-large-left .media-block {
+  grid-column: 1 / span 2;
+}
+
+.row-large-left .text-block {
+  grid-column: 3;
+  text-align: left;
+  align-self: start;
+}
+
+/* --- Split Row (Left Media, Center Text, Right Media) --- */
+.row-split .media-left {
+  grid-column: 2;
+}
+
+.row-split .text-center {
+  grid-column: 3;
+  align-self: center;
+}
+
+.row-split .media-right {
+  grid-column: 4;
+}
+
+.row-split .text-right {
+  grid-column: 5;
+  text-align: left;
+  align-self: start;
+}
+
+/* --- Row Center: Media and Text in Col 3 --- */
+.row-center .media-block {
+  grid-column: 3;
+}
+
+.row-center .text-block {
+  grid-column: 3;
+  text-align: center;
+}
+
+
+/* --- Top Navigation --- */
+.top-nav {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  z-index: 100;
+  line-height: 1.2;
+}
+
+.top-nav-left {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  z-index: 100;
+  font-weight: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  font-size: 1.2em;
+  color: #222;
+  line-height: 1.2;
+}
+
+.top-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #cf669b;
+  /* Pink text */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 8px rgba(207, 102, 155, 0.6);
+}
+
+/* About Page Specific Container */
+.about-container {
+  max-width: 600px;
+  margin: 140px auto 0 auto;
+  padding: 0 20px;
+}
+
+.about-container .text-block {
+  text-align: left;
+  font-size: 1.1em;
+}
+
+/* Responsive: Collapse to single column on mobile */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .project-row {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Image top, text bottom usually looks better, or standard stack */
+  }
+
+  .text-block,
+  .media-block {
+    grid-column: 1 / -1 !important;
+    text-align: left !important;
+    margin-bottom: 20px;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: 0 !important;
+    justify-self: stretch !important;
+  }
+
+  .bio-row .text-block {
+    margin-bottom: 60px;
+  }
+}
+
+/* --- Fullscreen Image Overlay --- */
+#image-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  cursor: zoom-out;
+}
+
+#image-overlay .overlay-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#overlay-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #222;
+  padding: 15px 0;
+  font-size: 1.2em;
+}
+
+#overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: none !important;
+  background: transparent;
+  color: #222;
+  font-size: 1.5em;
+  /* large font */
+  font-weight: bold;
+  /* bold as requested */
+  text-align: left;
+  line-height: 1.5;
+  padding: 40px;
+  width: 70%;
+  /* Space to right and left */
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Gallery Navigation Buttons */
+#image-overlay .prev-btn,
+#image-overlay .next-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: #222;
+  font-weight: normal;
+  font-size: 24px;
+  transition: 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#image-overlay .prev-btn {
+  left: 20px;
+}
+
+#image-overlay .next-btn {
+  right: 20px;
+}
+
+#image-overlay .prev-btn:hover,
+#image-overlay .next-btn:hover {
+  color: #cf669b;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 8px rgba(207, 102, 155, 0.6);
+}
+
+/* Animation */
+.overlay-content,
+#overlay-caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.3s;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0.95);
+    opacity: 0
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.95);
+    opacity: 0
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}
